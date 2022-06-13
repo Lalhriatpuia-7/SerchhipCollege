@@ -90,10 +90,12 @@
     <br>
 
     <x-departmentResults :departmentresults="$departmentresults" :subjectresults="$subjectresults" :count="$count" :departmentname="$departmentname" :year="$year"
-        :subjectname="$subjectname" :passedrecord="$passed_record" :sessions="$sessions" :passedrecorddept="$passed_record_dept" />
+        :subjectname="$subjectname" :passedrecord="$passed_record" :sessions="$sessions" :passedrecorddept="$passed_record_dept" :deptsubjectname="$deptsubjectname"
+        :dbsubjectname="$dbsubjectname" :reqyear="$reqyear" />
     <br>
     <x-toppers :toppers="$toppers" :year="$year" :departmentname="$departmentname" :subjectname="$subjectname" :topperscurrentsession="$topperscurrentsession"
-        :topperslastsession="$topperslastsession" :topperstwoyearsago="$topperstwoyearsago" :toppersthreeyearsago="$toppersthreeyearsago" :toppersfouryearsago="$toppersfouryearsago" :toppersfiveyearsago="$toppersfiveyearsago" />
+        :topperslastsession="$topperslastsession" :topperstwoyearsago="$topperstwoyearsago" :toppersthreeyearsago="$toppersthreeyearsago" :toppersfouryearsago="$toppersfouryearsago" :toppersfiveyearsago="$toppersfiveyearsago"
+        :reqyear="$reqyear" />
 
 
 </x-layout>

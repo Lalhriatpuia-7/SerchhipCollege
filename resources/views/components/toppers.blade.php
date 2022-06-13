@@ -1,4 +1,4 @@
-@props(['departmentname', 'toppers', 'subjectname', 'year', 'topperscount', 'topperscurrentsession', 'topperslastsession', 'topperstwoyearsago', 'toppersthreeyearsago', 'toppersfouryearsago', 'toppersfiveyearsago'])
+@props(['departmentname', 'toppers', 'subjectname', 'reqyear', 'year', 'topperscount', 'topperscurrentsession', 'topperslastsession', 'topperstwoyearsago', 'toppersthreeyearsago', 'toppersfouryearsago', 'toppersfiveyearsago'])
 
 <div class="wrapper-container">
     <div style="margin-top: 20px; margin-bottom:20px">
@@ -7,7 +7,7 @@
     <div class="userimagedisplay-container">
 
         @php
-            $dyear = $year;
+            $dyear = $reqyear;
             $cyear = now()->year;
             if ($dyear = $cyear) {
                 $session = $topperscurrentsession;

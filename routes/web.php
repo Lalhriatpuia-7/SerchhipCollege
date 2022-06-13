@@ -52,7 +52,7 @@ Route::get('/administration/resource-management-system', [AdministrationControll
 Route::get('/academic/department/academic-stream', [DepartmentController::class, 'index']);
 Route::get('/academic/syllabus', [SyllabusController::class, 'index']);
 Route::get('/academic/results/show-results', [ResultsController::class, 'index']);
-Route::POST('/academic/results/show-results', [ResultsController::class, 'search']);
+Route::POST('/academic/results/show-results', [ResultsController::class, 'index']);
 
 //information
 Route::get('/information/notification', [NotificationController::class, 'index']);

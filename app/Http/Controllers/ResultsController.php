@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Departments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class ResultsController extends Controller
 {
     public function index()
+
     {
+
+
         // get total results 
         $allresults = DB::table('results')
             ->join('users', 'users.id', '=', 'results.user_id')
@@ -72,15 +76,23 @@ class ResultsController extends Controller
         }
 
         $year = now()->year - $sessioncount;
-        for ($year; $year <= now()->year; $year++) {
+        $DBsubjectname = DB::table('subjects')->select('name')->get();
+        // dd($DBsubjectname);
+        foreach ($sessions as $session) {
             foreach ($department_name as $dept) {
-                $dept = $passed_record_dept[$year][$dept->name]['all_results'];
+                foreach ($DBsubjectname as $subj) {
+
+                    // $deptsubjectname[$session->session][$dept->name][$subj->name] =  $passed_record_dept[$session->session][$dept->name]['all_results']->where('subject_name', $subj);
+                    $deptsubjectname[$session->session][$dept->name][$subj->name]['results_appeared'] =   $allresults->where('session', $session->session)->where('department_name', $dept->name)->where('subject_name', $subj->name)->count();
+                    $deptsubjectname[$session->session][$dept->name][$subj->name]['results_passed'] =   $allresults->where('session', $session->session)->where('department_name', $dept->name)->where('subject_name', $subj->name)->where('result_status', 'passed')->count();
+                }
             }
         }
 
-        // $test = $passed_record_dept[2022]['Science']['all_results'];
+        // $test =  $passed_record_dept['2022']['Science']['all_results']->pluck(['subject_name']);
 
-        // dd($passed_record_dept[2022]);
+
+
 
         // get seperate the yearly records
         $year = now()->year;
@@ -223,14 +235,23 @@ class ResultsController extends Controller
         $fiveyearsago = $currentyear - 5;
 
 
-        for ($year = $fiveyearsago; $year <= $currentyear; $year++) {
-            // foreach ($department_name as $deptname) {
+        // for ($year = $fiveyearsago; $year <= $currentyear; $year++) {
+        //     // foreach ($department_name as $deptname) {
 
-            $toppers[$year] = $topperresults->where('session', $year);
-            // $toppers[$year][$deptname->name]['count'] = $topperresults->where('session', $year)->where('departmentname', $deptname->name)->count();
-            // }
+        //     $toppers[$year] = $topperresults->where('session', $year);
+        //     // $toppers[$year][$deptname->name]['count'] = $topperresults->where('session', $year)->where('departmentname', $deptname->name)->count();
+        //     // }
+        // }
+
+        for ($year = now()->year -  $sessioncount; $year <= now()->year; $year++) {
+            foreach ($department_name as $deptname) {
+
+                // $toppers[$year] = $topperresults->where('session', $year);
+                $toppers[$year][$deptname->name]['toppers'] = $topperresults->where('session', $year)->where('departmentname', $deptname->name);
+            }
         }
 
+        dd($toppers);
 
         $year = now()->year;
         $topperscurrentsession = $toppers[$year];
@@ -241,13 +262,26 @@ class ResultsController extends Controller
         $toppersfiveyearsago = $toppers[$year - 5];
 
         // dd($topperscurrentsession->where('departmentname', '=', 'Computer'));
-        $currentyear = now()->year;
+        $year = now()->year;
+        $request = Request::capture();
+        $request->validate([
+            'search_year' => 'max:255',
+        ]);
+        $requestyear = (int)$request->search_year;
+        if (!empty($request->search_year))
+            $reqyear = $requestyear;
+        elseif (empty($request->search_year))
+            $reqyear = now()->year;
+
         return view('academic.results.showresults', [
 
             'count' => $count = 1,
             'passed_record' => $passed_record,
             'passed_record_dept' => $passed_record_dept,
             'sessions' => $sessions,
+            'deptsubjectname' => $deptsubjectname,
+            'dbsubjectname' => $DBsubjectname,
+            'reqyear' => $reqyear,
 
             //bulk records
             'nowrecords' => $now_records,
@@ -288,59 +322,62 @@ class ResultsController extends Controller
         ]);
     }
 
-    public function search(Request $request)
-    {
-        $requestyear = (int)$request->search_year;
-        $year = now()->year;
-        // dd($year);  
-        $departmentname = DB::table('departments')->select('name')->get();
-        $sessions = DB::table('sessions')->select('session')->get();
-        $sessioncount = DB::table('sessions')->select('session')->get()->count();
+    // public function search(Request $request)
+    // {
+    //     $requestyear = (int)$request->search_year;
+    //     if (!empty($request->search_year))
+    //         $year = $requestyear;
+    //     elseif (empty($request->search_year))
+    //         $year = now()->year;
+    //     // dd($year);  
+    //     $departmentname = DB::table('departments')->select('name')->get();
+    //     $sessions = DB::table('sessions')->select('session')->get();
+    //     $sessioncount = DB::table('sessions')->select('session')->get()->count();
 
-        $departmentresults = DB::table('results')
-            ->join('users', 'users.id', '=', 'results.user_id')
-            ->join('sessions', 'sessions.id', '=', 'results.session_id')
-            ->join('departments', 'departments.id', '=', 'results.department_id')
-            ->join('subjects', 'subjects.id', '=', 'results.subject_id')
-            ->where(
-                'sessions.id',
-                '>',
-                0
-            )->select(
-                'users.id as user_id',
-                'subjects.name as subject',
-                'departments.name as department',
-                'results.internal_mark_scored as internal_mark',
-                'results.external_mark_scored as external_mark',
-                'sessions.session as session'
-            )
-            ->get();
-
-
-        $departmentresults->map(function ($result) {
-
-            $result->total_mark = $result->internal_mark + $result->external_mark;
-            if ($result->total_mark >= 33)
-                $result->result_status = 'passed';
-            else
-                $result->result_status = 'failed';
-        });
+    //     $departmentresults = DB::table('results')
+    //         ->join('users', 'users.id', '=', 'results.user_id')
+    //         ->join('sessions', 'sessions.id', '=', 'results.session_id')
+    //         ->join('departments', 'departments.id', '=', 'results.department_id')
+    //         ->join('subjects', 'subjects.id', '=', 'results.subject_id')
+    //         ->where(
+    //             'sessions.id',
+    //             '>',
+    //             0
+    //         )->select(
+    //             'users.id as user_id',
+    //             'subjects.name as subject',
+    //             'departments.name as department',
+    //             'results.internal_mark_scored as internal_mark',
+    //             'results.external_mark_scored as external_mark',
+    //             'sessions.session as session'
+    //         )
+    //         ->get();
 
 
-        for ($year = now()->year - $sessioncount; $year <= now()->year; $year++) {
-            foreach ($departmentname as $deptname) {
-                $departmentwiseresult[$year][$deptname->name] = $departmentresults->where('department', $deptname->name);
-                $departmentwiseresultcountappered[$year][$deptname->name] = $departmentresults->where('department', $deptname->name)->count();
-                $departmentwiseresultpassedcount[$year][$deptname->name] = $departmentresults->where('department', $deptname->name)->where('result_status', 'passed')->count();
-            }
-        }
-        // dd($departmentwiseresult);
+    //     $departmentresults->map(function ($result) {
 
-        // return view('academic.results.showresults', [
-        //     'requestyear' => $requestyear,
-        //     'departmentwiseresultcountappered' => $departmentwiseresultcountappered,
-        //     'departmentwiseresultpassedcount' => $departmentwiseresultpassedcount,
-        //     'year' => $year,
-        // ]);
-    }
+    //         $result->total_mark = $result->internal_mark + $result->external_mark;
+    //         if ($result->total_mark >= 33)
+    //             $result->result_status = 'passed';
+    //         else
+    //             $result->result_status = 'failed';
+    //     });
+
+
+    //     for ($year = now()->year - $sessioncount; $year <= now()->year; $year++) {
+    //         foreach ($departmentname as $deptname) {
+    //             $departmentwiseresult[$year][$deptname->name] = $departmentresults->where('department', $deptname->name);
+    //             $departmentwiseresultcountappered[$year][$deptname->name] = $departmentresults->where('department', $deptname->name)->count();
+    //             $departmentwiseresultpassedcount[$year][$deptname->name] = $departmentresults->where('department', $deptname->name)->where('result_status', 'passed')->count();
+    //         }
+    //     }
+    //     // dd($departmentwiseresult);
+
+    //     return view('academic.results.showresults', [
+    //         'requestyear' => $requestyear,
+    //         'departmentwiseresultcountappered' => $departmentwiseresultcountappered,
+    //         'departmentwiseresultpassedcount' => $departmentwiseresultpassedcount,
+    //         'year' => $year,
+    //     ]);
+    // }
 }
