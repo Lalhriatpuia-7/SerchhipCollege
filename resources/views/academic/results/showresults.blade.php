@@ -95,7 +95,7 @@
     <br>
     <x-toppers :toppers="$toppers" :year="$year" :departmentname="$departmentname" :subjectname="$subjectname" :topperscurrentsession="$topperscurrentsession"
         :topperslastsession="$topperslastsession" :topperstwoyearsago="$topperstwoyearsago" :toppersthreeyearsago="$toppersthreeyearsago" :toppersfouryearsago="$toppersfouryearsago" :toppersfiveyearsago="$toppersfiveyearsago"
-        :reqyear="$reqyear" />
+        :reqyear="$reqyear" :requetresult="$requetresult" />
 
 
 </x-layout>

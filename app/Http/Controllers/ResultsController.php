@@ -12,7 +12,10 @@ class ResultsController extends Controller
     public function index()
 
     {
-
+        $request = Request::capture();
+        $request->validate([
+            'search_year' => 'max:255',
+        ]);
 
         // get total results 
         $allresults = DB::table('results')
@@ -21,7 +24,7 @@ class ResultsController extends Controller
             ->join('departments', 'departments.id', '=', 'results.department_id')
             ->join('sessions', 'sessions.id', '=', 'results.session_id')
             ->join('examinations', 'examinations.id', '=', 'results.examination_id')
-            ->where('sessions.id', '>', 0)
+            ->where('results.id', '>', 0)
             ->select('departments.name as department_name', 'subjects.name as subject_name', 'results.internal_mark_scored', 'results.external_mark_scored', 'sessions.session', 'users.first_name as firstname', 'users.middle_name as middlename', 'users.last_name as lastname', 'users.avatar as avatar', 'users.id as user_id')
 
             ->orderBy('users.id')
@@ -235,43 +238,28 @@ class ResultsController extends Controller
         $fiveyearsago = $currentyear - 5;
 
 
-        // for ($year = $fiveyearsago; $year <= $currentyear; $year++) {
-        //     // foreach ($department_name as $deptname) {
+        for ($year = $fiveyearsago; $year <= $currentyear; $year++) {
+            // foreach ($department_name as $deptname) {
 
-        //     $toppers[$year] = $topperresults->where('session', $year);
-        //     // $toppers[$year][$deptname->name]['count'] = $topperresults->where('session', $year)->where('departmentname', $deptname->name)->count();
-        //     // }
-        // }
-
-        for ($year = now()->year -  $sessioncount; $year <= now()->year; $year++) {
-            foreach ($department_name as $deptname) {
-
-                // $toppers[$year] = $topperresults->where('session', $year);
-                $toppers[$year][$deptname->name]['toppers'] = $topperresults->where('session', $year)->where('departmentname', $deptname->name);
-            }
+            $toppers[$year] = $topperresults->where('session', $year);
+            // $toppers[$year][$deptname->name]['count'] = $topperresults->where('session', $year)->where('departmentname', $deptname->name)->count();
+            // }
         }
 
-        dd($toppers);
+
 
         $year = now()->year;
-        $topperscurrentsession = $toppers[$year];
-        $topperslastsession = $toppers[$year - 1];
-        $topperstwoyearsago = $toppers[$year - 2];
-        $toppersthreeyearsago = $toppers[$year - 3];
-        $toppersfouryearsago = $toppers[$year - 4];
-        $toppersfiveyearsago = $toppers[$year - 5];
 
-        // dd($topperscurrentsession->where('departmentname', '=', 'Computer'));
-        $year = now()->year;
-        $request = Request::capture();
-        $request->validate([
-            'search_year' => 'max:255',
-        ]);
         $requestyear = (int)$request->search_year;
         if (!empty($request->search_year))
             $reqyear = $requestyear;
         elseif (empty($request->search_year))
             $reqyear = now()->year;
+
+        $requetresult = $topperresults->where('session', '=', $reqyear);
+
+
+        // dd($requetresult->first_name);
 
         return view('academic.results.showresults', [
 
@@ -282,6 +270,7 @@ class ResultsController extends Controller
             'deptsubjectname' => $deptsubjectname,
             'dbsubjectname' => $DBsubjectname,
             'reqyear' => $reqyear,
+            'requetresult' => $requetresult,
 
             //bulk records
             'nowrecords' => $now_records,

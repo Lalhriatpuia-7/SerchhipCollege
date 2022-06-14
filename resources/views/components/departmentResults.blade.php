@@ -61,7 +61,8 @@
             </div>
         </div>
 
-        <div class="sidebox" style="width: 40%; justify-items:center; overflow-y:hidden; height:940px">
+        <div class="sidebox-small"
+            style="width: 40%; justify-items:center;  overflow-y:auto; overflow-x:hidden; height:940px">
             <form method="POST" action="/academic/results/show-results" name="search by year" id="search by year">
                 @csrf
 
@@ -69,28 +70,40 @@
                     <input type="text" id="search_year" name="search_year" placeholder="Search by year"
                         style="width: 80%" class="searchbox">
                 </div>
-                @for ($reqsession = $year; $reqsession >= $reqyear; $reqsession--)
-                    <button class="sessionresult-btn" type="submit" id="currentsession-btn" name="currentsession-btn">
-                        <div class="inner_sessionresult-btn">
-                            <div>Current session </div>
-                            <div>{{ $reqsession }}</div>
-                        </div>
-                        <div class="inner_sessionresult-btn">
-                            <div> Total passed </div>
-                            <div>{{ $passedrecord[$reqsession]['pass_count'] }}</div>
-                        </div>
-                        <div class="inner_sessionresult-btn">
-                            <div> Passed Percent</div>
-                            <div>
-                                {{ $passedrecord[$reqsession]['all_results_count'] == 0
-                                    ? 0
-                                    : round(($passedrecord[$reqsession]['pass_count'] / $passedrecord[$reqsession]['all_results_count']) * 100, 2) }}
-                            </div>
-                        </div>
-                    </button>
-                @endfor
-
             </form>
+            {{-- <form method="" action="/academic/results/show-results" name="sessionbtn" id="sessionbtn"> --}}
+            @csrf
+            @for ($reqsession = $year; $reqsession >= $reqyear; $reqsession--)
+                <button class="sessionresult-btn" type="submit" id="currentsession-btn" name="currentsession-btn"
+                    onclick="selectSession($reqsession)">
+                    <div class="inner_sessionresult-btn">
+                        <div>Current session </div>
+                        <div>{{ $reqsession }}</div>
+                    </div>
+                    <div class="inner_sessionresult-btn">
+                        <div> Total passed </div>
+                        <div>{{ $passedrecord[$reqsession]['pass_count'] }}</div>
+                    </div>
+                    <div class="inner_sessionresult-btn">
+                        <div> Passed Percent</div>
+                        <div>
+                            {{ $passedrecord[$reqsession]['all_results_count'] == 0
+                                ? 0
+                                : round(($passedrecord[$reqsession]['pass_count'] / $passedrecord[$reqsession]['all_results_count']) * 100, 2) }}
+                        </div>
+                    </div>
+                </button>
+            @endfor
+            {{-- </form> --}}
+            <script>
+                const name = document.querySelector(".sessionresult-btn");
+                const searchbar = document.querySelector(".searchbox");
+
+                function selectSession($session) {
+                    $reqyear = $name;
+                }
+            </script>
+
         </div>
 
     </div>
