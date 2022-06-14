@@ -1,6 +1,10 @@
 <x-layout>
     <x-highlight />
-
+    <div class="navigation">
+        <a href="/">About us</a>&nbsp;
+        <span class="dot"></span>
+        &nbsp;<a href="/about-us/rules-and-regulations">Rules and Regulations</a>
+    </div>
     <div class="big-box" style="align-content: center">
         <div>
             <div class="" style="margin-top:40px">

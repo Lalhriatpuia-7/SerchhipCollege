@@ -37,6 +37,25 @@ header{
 border: 2px black;
 
 }
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+   
+  }
+.navigation{
+    color: #ffffff;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-top: -200px;
+    margin-bottom: 200px;
+
+}
 .headerbox{
     padding-top: 10px;
     position: sticky;

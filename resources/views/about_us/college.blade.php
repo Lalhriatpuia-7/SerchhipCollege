@@ -1,5 +1,10 @@
 <x-layout>
     <x-highlight />
+    <div class="navigation">
+        <a href="/">About us</a>&nbsp;
+        <span class="dot"></span>
+        &nbsp;<a href="/about-us/college">Govt. Serchhip College</a>
+    </div>
 
     <div class="big-box" style="align-content: center">
         <div>

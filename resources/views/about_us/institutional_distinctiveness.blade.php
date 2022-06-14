@@ -1,5 +1,10 @@
 <x-layout>
     <x-highlight />
+    <div class="navigation">
+        <a href="/">About us</a>&nbsp;
+        <span class="dot"></span>
+        &nbsp;<a href="/about-us/institutional-distinctiveness">Institutional Distinctiveness</a>
+    </div>
 
     <div class="big-box" style="align-content: center">
         <div>

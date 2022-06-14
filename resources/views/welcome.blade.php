@@ -3,6 +3,9 @@
     <body class="antialiased">
 
         <x-highlight />
+        <div class="navigation" style="font-size:small; font-weight:normal; margin-top:-50px; margin-bottom:50px">
+            Somethings to add here
+        </div>
 
         <div class="item-outerbox" style="align-content: center">
             <div>
