@@ -300,12 +300,12 @@ class ResultsController extends Controller
 
             //toppers
             'toppers' => $toppers,
-            'topperscurrentsession' => $topperscurrentsession,
-            'topperslastsession' => $topperslastsession,
-            'topperstwoyearsago' => $topperstwoyearsago,
-            'toppersthreeyearsago' => $toppersthreeyearsago,
-            'toppersfouryearsago' => $toppersfouryearsago,
-            'toppersfiveyearsago' => $toppersfiveyearsago,
+            // 'topperscurrentsession' => $topperscurrentsession,
+            // 'topperslastsession' => $topperslastsession,
+            // 'topperstwoyearsago' => $topperstwoyearsago,
+            // 'toppersthreeyearsago' => $toppersthreeyearsago,
+            // 'toppersfouryearsago' => $toppersfouryearsago,
+            // 'toppersfiveyearsago' => $toppersfiveyearsago,
 
             'year' => $year,
         ]);

@@ -17,7 +17,7 @@ body {
 header{
     padding: auto;
     font-family: 'Nunito', sans-serif;
-    border: black;
+    /* border: black; */
     box-shadow: 2px;
     font-size: medium;
     display: flex;
@@ -31,21 +31,25 @@ header{
 .navbar{
     position: sticky;
     top: 0;
+    width: 100%;
 }
 .custom-outlinebox{
 border: 2px black;
 
 }
 .headerbox{
-
+    padding-top: 10px;
     position: sticky;
     top: 0;
     border:#1a202c;    
     border-width: 1px;
     border-style: solid;
-    height: 100px;
-    width: 100%;    
-    color: #fff;   
+    height: 100%;
+    width: 100%;   
+    padding-bottom: 10px; 
+    align-content: center;
+    align-items: center;
+       bottom: 0;
     
 }
 .highlightbox{
@@ -55,6 +59,9 @@ border: 2px black;
     width: 100%;
     color: #ffffff;
     overflow: hidden;
+    margin-top: auto;
+    align-items: center;
+    align-content: center;
 }
 .footerbox{
     border: #1a202c;
@@ -300,11 +307,17 @@ border: 2px black;
 
 }
 .headeroptions{
+
+    position: sticky;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 100px; 
+    height: fit-content; 
     box-shadow: 0px 1px #1a202c;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 1px;
+    bottom: auto;
     
     
 }

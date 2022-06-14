@@ -2,9 +2,9 @@
     <img style="object-fit:cover; width: 100%; " src="../../storage/pages/89338edited.jpg" alt="">
 </div>
 <div class="dropdown">
-    <a href="" class="main_title">
-        <img style=" width: 200px " src="../../storage/pages/sitelogo.png">
-    </a>
+
+    <img style=" width: 200px " src="../../storage/pages/sitelogo.png">
+
 </div>
 <div class="dropdown">
     <a href="/">Home</a>

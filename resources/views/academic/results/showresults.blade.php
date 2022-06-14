@@ -93,9 +93,8 @@
         :subjectname="$subjectname" :passedrecord="$passed_record" :sessions="$sessions" :passedrecorddept="$passed_record_dept" :deptsubjectname="$deptsubjectname"
         :dbsubjectname="$dbsubjectname" :reqyear="$reqyear" />
     <br>
-    <x-toppers :toppers="$toppers" :year="$year" :departmentname="$departmentname" :subjectname="$subjectname" :topperscurrentsession="$topperscurrentsession"
-        :topperslastsession="$topperslastsession" :topperstwoyearsago="$topperstwoyearsago" :toppersthreeyearsago="$toppersthreeyearsago" :toppersfouryearsago="$toppersfouryearsago" :toppersfiveyearsago="$toppersfiveyearsago"
-        :reqyear="$reqyear" :requetresult="$requetresult" />
+    <x-toppers :toppers="$toppers" :year="$year" :departmentname="$departmentname" :subjectname="$subjectname" :reqyear="$reqyear"
+        :requetresult="$requetresult" />
 
 
 </x-layout>
