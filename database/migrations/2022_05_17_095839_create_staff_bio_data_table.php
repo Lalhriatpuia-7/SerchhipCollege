@@ -18,9 +18,12 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('user_type_id')->constrained('user_types')->cascadeOnDelete();
             $table->string('qualification');
-            $table->string('experience');
+            $table->bigInteger('start_date');
             $table->string('rating')->nullable();
             $table->foreignId('staff_subject_association_id')->constrained('staff_subject_associations')->cascadeOnDelete();
+            $table->integer('graduation_year');
+            $table->longText('staff_details');
+            $table->text('institution');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

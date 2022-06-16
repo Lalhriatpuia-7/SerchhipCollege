@@ -40,6 +40,8 @@ Route::get('/subjects/commerce', [SubjectStreamController::class, 'getcommercesu
 
 //administration and staff
 Route::get('/administration/teachingstaff', [StaffController::class, 'get_teaching_staff']);
+Route::get('/administration/teachingstaffdetails/{slug}', [StaffController::class, 'get_teaching_staff_details'])->name('administration.teachingstaffdetails');
+Route::get('/administration/administrationstaff/{slug}', [StaffController::class, 'get_administration_staff_details'])->name('administration.administrationstaffdetails');
 Route::get('/administration/administrationstaff', [StaffController::class, 'get_administration_staff']);
 Route::get('/administration/principal', [AdministrationController::class, 'index']);
 Route::get('/administration/vice-principal', [AdministrationController::class, 'get_vice_principal']);

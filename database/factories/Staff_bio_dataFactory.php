@@ -23,9 +23,12 @@ class Staff_bio_dataFactory extends Factory
             'user_id' => User::all()->random()->id,
             'user_type_id' => User_type::all()->random()->id,
             'qualification' => $this->faker->word(),
-            'experience' => $this->faker->numberBetween(1, 60),
+            'start_date' => $this->faker->numberBetween(1940, now()->year),
             'rating' => $this->faker->numberBetween(0, 10),
             'staff_subject_association_id' => Staff_subject_association::all()->random()->id,
+            'graduation_year' => $this->faker->numberBetween(1940, now()->year),
+            'staff_details' => $this->faker->paragraph(),
+            'institution' => $this->faker->paragraph(),
         ];
     }
 }

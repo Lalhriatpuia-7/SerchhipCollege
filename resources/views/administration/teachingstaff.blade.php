@@ -2,7 +2,7 @@
     <x-highlight />
 
     <div class="big-box" style="align-content: center">
-        <div>
+        <div style="width: 90%">
             <div class="" style="margin-top:40px">
                 <br>
                 <h1 class="title-head">Administration</h1>
@@ -11,19 +11,31 @@
                 <h1 class="title-head">Teaching Staff</h1>
                 <br>
             </div>
-            <div class="staff-outerbox">
+            <div class="staff-outerbox" style="display: flex; flex-direction:row; flex-wrap:wrap">
                 @foreach ($teachingstaff as $user)
-                    <div class="staffbox" style="">
-                        <img src="/storage/{{ $user->avatar }}" style="object-fit:cover; height:400px;">
-                        <div class="title"><a href=""> {{ $user->first_name }}
+                    <div class="staffbox" style="display:flex; flex-direction:column; ">
+                        <div><img src="/storage/{{ $user->avatar }}"
+                                style="object-fit:cover; height:auto; padding:10px; margin:10px"></div>
+                        <div class="title" style><a style="color:rgb(0, 0, 0)"
+                                href="{{ route('administration.teachingstaffdetails', ['slug' => $user->slug]) }}">
+                                Prof. {{ $user->first_name }}
                                 {{ $user->middle_name }} {{ $user->last_name }}</a></div>
-                        <div class="" style=""><a href="">username: {{ $user->username }}</a></div>
-                        <div class="" style=""><a href="">email: {{ $user->email }}</a></div>
-                        <div class="" style=""><a href="">phone: {{ $user->contact_number }}</a></div>
-                        <div class="" style=""><a href="">subject teached: {{ $user->name }}</a></div>
-                        <div class="" style=""><a href="">qualification: {{ $user->qualification }}</a>
+                        <div class="" style="color:rgb(0, 0, 0)"><a style="color:rgb(0, 0, 0)"
+                                href="">username: {{ $user->username }}</a></div>
+                        <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">email:
+                                {{ $user->email }}</a></div>
+                        <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">phone:
+                                {{ $user->contact_number }}</a>
                         </div>
-                        <div class="" style=""><a href="">experience: {{ $user->experience }}</a></div>
+                        <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">subject teached:
+                                {{ $user->name }}</a>
+                        </div>
+                        <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">qualification:
+                                {{ $user->qualification }}</a>
+                        </div>
+                        <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">experience:
+                                {{ now()->year - $user->start_date }}</a>
+                        </div>
                     </div>
                 @endforeach
 

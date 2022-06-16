@@ -74,8 +74,8 @@
             {{-- <form method="" action="/academic/results/show-results" name="sessionbtn" id="sessionbtn"> --}}
             @csrf
             @for ($reqsession = $year; $reqsession >= $reqyear; $reqsession--)
-                <button class="sessionresult-btn" type="submit" id="currentsession-btn" name="currentsession-btn"
-                    onclick="selectSession($reqsession)">
+                <button style="color: black" class="sessionresult-btn" type="submit" id="currentsession-btn"
+                    name="currentsession-btn" onclick="selectSession($reqsession)">
                     <div class="inner_sessionresult-btn">
                         <div>Current session </div>
                         <div>{{ $reqsession }}</div>

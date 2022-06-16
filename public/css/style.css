@@ -45,6 +45,33 @@ border: 2px black;
     display: inline-block;
    
   }
+  .short-details-box{
+
+    margin-top:auto;
+    margin-bottom:auto;
+    align-content: center;
+    padding: 10px;
+    margin-left:10px;
+    font-weight: bold;
+  }
+  .education-box{
+
+    box-shadow: 1px 1px 1px 1px #1a202c;
+
+    /* border: 1px 1px 1px 1px #1a202c; */
+    padding: 1px;
+    margin-top: 10px;
+    width:100%;
+    text-align: left;
+   
+
+  }
+  .education-box-head{
+    padding: 10px;
+    background-color: #34404e;
+    color: #ffffff;
+
+  }
 .navigation{
     color: #ffffff;
     align-items: center;
@@ -131,7 +158,7 @@ border: 2px black;
 
  .big-box{
      width: 90%;
-     background-color: rgb(252, 249, 245);
+     background-color: rgb(255, 255, 255);
      height: fit-content;
      align-items: center;
      text-align: center;
@@ -141,7 +168,7 @@ border: 2px black;
     display: flex;    
     height: auto;
     margin-bottom: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 5px;
     
     
  }
@@ -187,6 +214,7 @@ border: 2px black;
     flex-wrap: wrap;
     height: auto;
     margin-bottom: 25px;
+    justify-content: space-between;
 
 }
 .staffbox{
@@ -194,6 +222,8 @@ border: 2px black;
     width: 400px;
     height: 600px;
     justify-content: center;
+    padding: 10px;
+    margin: 10px;
 }
 .post-box{
     background-color: rgba(255, 255, 255, 0.37);

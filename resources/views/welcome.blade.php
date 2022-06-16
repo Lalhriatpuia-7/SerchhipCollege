@@ -52,7 +52,7 @@
                 </div>
                 <div>
                     The principal has a total experience of
-                    {{ $principaldata->experience }}
+                    {{ now()->year - $principaldata->start_date }}
                     years. And a very capable hand.
                 </div>
 

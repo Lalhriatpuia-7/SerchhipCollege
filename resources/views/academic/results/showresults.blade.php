@@ -1,5 +1,10 @@
 <x-layout>
     <x-highlight />
+    <div class="navigation">
+        <a href="/">home</a>&nbsp;
+        <span class="dot"></span>
+        &nbsp;<a href="/academic/results/show-results">Results</a>
+    </div>
     <br>
     <div class="graph-flex">
         <div class="inner-graph" style="width: 60%; height:auto; ">
