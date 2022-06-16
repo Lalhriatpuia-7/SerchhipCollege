@@ -15,11 +15,16 @@
                 @foreach ($administrations as $admin)
                     <div class="staffbox" style="">
                         <img src="/storage/{{ $admin->avatar }}" style="object-fit:cover; height:400px;">
-                        <div class="title"><a href=""> {{ $admin->first_name }}
+                        <div class="title"><a style="color:black" href=""> {{ ucfirst($admin->first_name) }}
                                 {{ $admin->middle_name }} {{ $admin->last_name }}</a></div>
-                        <div class="" style=""><a href="">username: {{ $admin->username }}</a></div>
-                        <div class="" style=""><a href="">email: {{ $admin->email }}</a></div>
-                        <div class="" style=""><a href="">phone: {{ $admin->contact_number }}</a></div>
+                        <div class="" style=""><a style="color:black" href="">username:
+                                {{ $admin->username }}</a>
+                        </div>
+                        <div class="" style=""><a style="color:black" href="">email:
+                                {{ $admin->email }}</a></div>
+                        <div class="" style=""><a style="color:black" href="">phone:
+                                {{ $admin->contact_number }}</a>
+                        </div>
                     </div>
                 @endforeach
 
