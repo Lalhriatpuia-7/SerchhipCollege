@@ -18,7 +18,7 @@
                                 style="object-fit:cover; height:auto; padding:10px; margin:10px"></div>
                         <div class="title" style><a style="color:rgb(0, 0, 0)"
                                 href="{{ route('administration.teachingstaffdetails', ['slug' => $user->slug]) }}">
-                                Prof. {{ $user->first_name }}
+                                Prof. {{ ucfirst($user->first_name) }}
                                 {{ $user->middle_name }} {{ $user->last_name }}</a></div>
                         <div class="" style="color:rgb(0, 0, 0)"><a style="color:rgb(0, 0, 0)"
                                 href="">username: {{ $user->username }}</a></div>

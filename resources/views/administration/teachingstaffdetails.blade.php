@@ -7,7 +7,7 @@
                 <img src="/storage/{{ $staff->avatar }}" alt="">
             </div>
             <div class="short-details-box">
-                <div class="title">Prof. {{ $staff->first_name }} {{ $staff->middle_name }}
+                <div class="title">Prof. {{ ucfirst($staff->first_name) }} {{ $staff->middle_name }}
                     {{ $staff->last_name }}
                 </div>
                 <div>{{ $staff->name }}</div>

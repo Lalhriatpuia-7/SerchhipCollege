@@ -214,7 +214,7 @@ border: 2px black;
     flex-wrap: wrap;
     height: auto;
     margin-bottom: 25px;
-    justify-content: space-between;
+    justify-content:flex-start;
 
 }
 .staffbox{

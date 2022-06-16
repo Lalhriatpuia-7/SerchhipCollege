@@ -25,8 +25,8 @@
                         <div class="staffbox" style="display:flex; flex-direction:column;">
                             <img src="/storage/{{ $user->avatar }}" style="object-fit:cover; height:auto;">
                             <div class="title"><a style="color:black"
-                                    href="{{ route('administration.administrationstaffdetails', ['slug' => $user->slug]) }}">>
-                                    {{ $user->first_name }}
+                                    href="{{ route('administration.administrationstaffdetails', ['slug' => $user->slug]) }}">
+                                    {{ ucfirst($user->first_name) }}
                                     {{ $user->middle_name }} {{ $user->last_name }}</a></div>
                             <div class="" style=""><a style="color:black" href="">username:
                                     {{ $user->username }}</a>
