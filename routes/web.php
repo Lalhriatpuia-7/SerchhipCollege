@@ -6,6 +6,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SubjectStreamController;
@@ -49,6 +50,10 @@ Route::get('/administration/annual-reports', [AdministrationController::class, '
 Route::get('/administration/organogram', [AdministrationController::class, 'get_organogram']);
 Route::get('/administration/mou', [AdministrationController::class, 'get_mou']);
 Route::get('/administration/resource-management-system', [AdministrationController::class, 'get_resource_management_system']);
+
+//registration
+Route::get('/registration/show-student-enrollment', [RegistrationController::class, 'index']);
+Route::POST('/registration/show-student-enrollment', [RegistrationController::class, 'index']);
 
 //academic
 Route::get('/academic/department/academic-stream', [DepartmentController::class, 'index']);

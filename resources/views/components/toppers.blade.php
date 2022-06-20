@@ -9,7 +9,7 @@
         @foreach ($requetresult as $result)
             <div class="userimagedisplay-box">
                 <div>
-                    <img src="/storage/{{ $result->avatar }}" class="" style="border-radius: 4%">
+                    <img src="/storage/{{ $result->avatar }}" class="" style="border-radius: 4%; width:100%">
                 </div>
                 <div>
                     {{ $result->firstname }} {{ $result->middlename }} {{ $result->lastname }}

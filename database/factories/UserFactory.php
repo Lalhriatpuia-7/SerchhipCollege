@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'address' => $this->faker->address(),
             'contact_number' => $this->faker->phoneNumber(),
             'alternate_contact_number' => $this->faker->phoneNumber(),
-            'registration_number' => Registration::factory(),
+            'registration_number' => Registration::all()->random()->id,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];

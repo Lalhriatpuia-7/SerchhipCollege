@@ -14,7 +14,7 @@ class ResultsController extends Controller
     {
         $request = Request::capture();
         $request->validate([
-            'search_year' => 'max:255',
+            'search_year' => 'max:4',
         ]);
 
         // get total results 

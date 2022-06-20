@@ -51,4 +51,8 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(Staff_bio_data::class);
     }
+    public function registration()
+    {
+        return $this->belongsTo(Registration::class);
+    }
 }

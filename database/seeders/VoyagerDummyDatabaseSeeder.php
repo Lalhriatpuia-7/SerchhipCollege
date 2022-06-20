@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SubjectRelation;
 use Illuminate\Database\Seeder;
 
 class VoyagerDummyDatabaseSeeder extends Seeder
@@ -22,6 +23,7 @@ class VoyagerDummyDatabaseSeeder extends Seeder
             PagesTableSeeder::class,
             TranslationsTableSeeder::class,
             PermissionRoleTableSeeder::class,
+            SubjectRelationSeeder::class,
         ]);
     }
 }

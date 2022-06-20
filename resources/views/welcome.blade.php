@@ -42,7 +42,7 @@
                 <a href="" class="title">Principal</a>
                 <div>
 
-                    {{ $users->first_name }} {{ $users->middle_name }} {{ $users->last_name }}
+                    {{ ucfirst($users->first_name) }} {{ $users->middle_name }} {{ $users->last_name }}
                 </div>
                 <div class="">
 

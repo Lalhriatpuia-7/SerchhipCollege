@@ -385,6 +385,14 @@ border: 2px black;
     justify-content: space-between;
     justify-items: center;
 }
+.enrollment-graph-flex{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    align-self: center;
+    align-items: center;
+
+}
 .graph-flex{
     width: 90%;
     display: flex;
@@ -427,6 +435,48 @@ border: 2px black;
     background-color: #ffff;
     padding: 10px;
     margin: 10px;
+}
+.enrollmentflex-box{
+    display:flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    margin-left:auto;
+    margin-right: auto;
+    width:100%;
+    height: auto;
+    align-self: center;
+    padding: 10px;   
+
+}
+.table-shadow{
+    box-shadow: 1px 1px 1px 1px #1a202c4b;
+    padding: 10px;
+    margin: 10px;
+
+}
+.showenrollmenttable{
+
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+
+}
+.display-enrollment-info{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+   
+    width: 100%;
+    align-self: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
 }
 .userimagedisplay-container{
 
