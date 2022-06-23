@@ -604,6 +604,18 @@ border: 2px black;
     /* width: 50%; */
     
 }
+
+.semi-rounded-image{
+    place-items: center;
+    border-radius: 5%;
+    /* width: 200px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* width: 50%; */
+    
+}
 .linewall{
     width: 8px;
     background-color: #1a202c;

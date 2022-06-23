@@ -14,7 +14,8 @@
             <div class="staff-outerbox">
                 @foreach ($administrations as $admin)
                     <div class="staffbox" style="">
-                        <img src="/storage/{{ $admin->avatar }}" style="object-fit:cover; height:400px;">
+                        <img class="semi-rounded-image" src="/storage/{{ $admin->avatar }}"
+                            style="object-fit:cover; height:400px;">
                         <div class="title"><a style="color:black" href=""> {{ ucfirst($admin->first_name) }}
                                 {{ $admin->middle_name }} {{ $admin->last_name }}</a></div>
                         <div class="" style=""><a style="color:black" href="">username:

@@ -23,6 +23,7 @@ class HomePageController extends Controller
             'users.first_name',
             'users.middle_name',
             'users.last_name',
+            'users.avatar',
         ]);
 
         return view('welcome', [
@@ -30,6 +31,7 @@ class HomePageController extends Controller
             'users' => $users,
             'principaldata' => $principaldata,
             'subjects' => $subjects,
+
         ]);
     }
 }
