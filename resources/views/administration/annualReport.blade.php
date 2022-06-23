@@ -19,14 +19,16 @@
 
                     <h1 class="title-head">Annual Report</h1>
                     <br>
-                </div>
-                <div>
+                    <div>
 
-                    <a href="'/storage/Defaulted and Hardcoded/' . '->' . 'download_link'">Report 1</a>
+                        <a class="title" href="/storage/Defaulted and Hardcoded/sample.pdf">example.pdf</a>
+                    </div>
                 </div>
+
 
 
 
             </div>
         </div>
+    </div>
 </x-layout>

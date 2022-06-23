@@ -29,7 +29,7 @@
         <a href="/administration/vice-principal">Vice Principal</a>
         <a href="/administration/teachingstaff">Teaching Staff</a>
         <a href="/administration/administrationstaff">Administration Staff</a>
-        <a href="/administration/annual-repindexorts">Annual Report</a>
+        <a href="/administration/annual-reports">Annual Report</a>
         <a href="/administration/organogram">Organogram</a>
         <a href="/administration/mou">MoU</a>
         <a href="/administration/resource-management-system">Resource Management System</a>
@@ -54,23 +54,34 @@
             </span>
             <a href="/academic/syllabus">Syllabus</a>
             <a href="/academic/results/show-results">Result</a>
-            <a href="">Question Book</a>
-            <a href="">Internal Examination Policy</a>
-            <a href="">Online Examination Form</a>
-            <a href="">Academic Calendar</a>
-            <a href="">Student Enrolment</a>
-            <a href="">Learning Outcome</a>
-            <a href="">Handbook</a>
-            <a href="">Student Union</a>
-        </span>
+            <a href="/academic/question-book">Question Book</a>
+            <a href="/academic/internal-examination-policy">Internal Examination Policy</a>
+            <a href="/academic/online-examination-form">Online Examination Form</a>
+            <a href="/academic/academic-calendar">Academic Calendar</a>
+            <a href="/registration/show-student-enrollment">Student Enrolment</a>
+            <span>
+                <span class="inner-dropbtn">
+                    <a class="" style="">Learning Outcome</a>
+
+                    <span class="inner-dropdown " style="">
+                        <div class="inner-dropdown-content animate__animated animate__fadeInLeft animate__faster">
+                            <a href="">Course Outcome</a>
+                            <a href="">Program Outcome</a>
+                            <a href="">Program Specific Outcome</a>
+                        </div>
+                    </span>
+                </span>
+                <a href="">Handbook</a>
+                <a href="">Student Union</a>
+            </span>
     </div>
 
 </div>
 <div class="dropdown">
     <button class="dropbtn">Information</button>
     <div class="dropdown-content animate__animated animate__fadeIn animate__faster">
-        <a href="">News</a>
-        <a href="">Notification</a>
+        <a href="information/news">News</a>
+        <a href="/information/notification">Notification</a>
     </div>
 </div>
 <div class="dropdown">

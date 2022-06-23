@@ -2,8 +2,7 @@
     <x-highlight />
     <div class=""
         style="box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.192); width:90%; align-self:center; align-items:center; display:flex; flex-direction:column">
-        <div
-            style="width: 90%; align-self:center; box-shadow:0px 0px 0px 1px rgba(0, 0, 0, 0.16); padding:10px; margin:10px">
+        <div class="showenrollmentgraph" style="">
             <h1 class="title" style="margin-left: 10px; text-align:center"> Past five years Enrollment Representation
             </h1>
             <div class="enrollmentflex-box">
@@ -33,7 +32,7 @@
                     </table>
                 </div>
                 <div class="enrollment-graph-flex">
-                    <div class="inner-graph" style="width: 60%; height:auto; ">
+                    <div class="inner-graph" style="width: 100%; height:auto; ">
                         <h1 class="title" style="text-align: center">Results Overall</h1>
                         <canvas id="myChart" width="100" height="100"></canvas>
                         <script>

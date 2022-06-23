@@ -34,8 +34,13 @@ class AdministrationController extends Controller
 
     public function get_pdf_file()
     {
+        $filepath = '/storage/Defaulted and Hardcoded/sample.pdf';
 
-        return view('administration.annualReport', []);
+        return response()->download('/storage/Defaulted and Hardcoded/sample.pdf', 'example.pdf', [], 'inline');
+
+        // return view('administration.annualReport', [
+        //     'filepath' => $filepath,
+        // ]);
     }
 
     public function get_organogram()

@@ -27,7 +27,7 @@
                         <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">phone:
                                 {{ $user->contact_number }}</a>
                         </div>
-                        <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">subject teached:
+                        <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">subject taught:
                                 {{ $user->name }}</a>
                         </div>
                         <div class="" style=""><a style="color:rgb(0, 0, 0)" href="">qualification:

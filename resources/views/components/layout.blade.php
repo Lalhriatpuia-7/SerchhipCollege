@@ -13,7 +13,12 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Styles -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
     {{-- <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AcademicCalendarController;
+use App\Http\Controllers\AcademicController;
 use App\Http\Controllers\AdministrationController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\HomePageController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SubjectStreamController;
 use App\Http\Controllers\SyllabusController;
+use App\Models\AcademicCalendar;
 use App\Models\Administration;
 use App\Models\News;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +63,10 @@ Route::get('/academic/department/academic-stream', [DepartmentController::class,
 Route::get('/academic/syllabus', [SyllabusController::class, 'index']);
 Route::get('/academic/results/show-results', [ResultsController::class, 'index']);
 Route::POST('/academic/results/show-results', [ResultsController::class, 'index']);
+Route::get('/academic/question-book', [AcademicController::class, 'questionbook_index']);
+Route::get('/academic/internal-examination-policy', [AcademicController::class, 'internal_examination_policy']);
+Route::get('/academic/online-examination-form', [AcademicController::class, 'online_examination_form']);
+Route::get('/academic/academic-calendar', [AcademicCalendarController::class, 'index']);
 
 //information
 Route::get('/information/notification', [NotificationController::class, 'index']);

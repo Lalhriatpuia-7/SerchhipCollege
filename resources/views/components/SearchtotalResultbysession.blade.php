@@ -1,5 +1,5 @@
 @props(['year', 'reqyear', 'reqrecord'])
-<div class="sidebox-small" style="width: 100%; justify-items:center;  overflow-y:auto; overflow-x:hidden; height:940px">
+<div class="sidebox-small" style="width: 100%; justify-items:center;  overflow-y:auto; overflow-x:hidden; height:auto">
     <form method="POST" action="/registration/show-student-enrollment" name="search by year" id="search by year">
         @csrf
 
